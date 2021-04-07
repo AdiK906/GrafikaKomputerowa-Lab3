@@ -46,15 +46,17 @@ public class SubroutineHierarchy extends JPanel {
 
         // TODO: Draw the content of the scene.
         //Utworzenie lewego górnego obiektu
-        g2.translate(-1.5,1.5);//wielokąty
+        g2.translate(-1.5,1.5);
         rotatingPolygon(g2);
         g2.translate(-1.5,0.5);
         rotatingPolygon(g2);
+
         g2.setColor(Color.RED);//prostokąt
         g2.rotate(Math.toRadians(-18));
         g2.translate(0.8,0);
-        g2.scale(1.7,0.1);
+        g2.scale(1.8,0.1);
         filledRect(g2);
+
         g2.setColor(Color.MAGENTA);//trójkąt
         g2.scale(0.55,10);
         g2.rotate(Math.toRadians(18));
@@ -67,11 +69,13 @@ public class SubroutineHierarchy extends JPanel {
         rotatingPolygon(g2);
         g2.translate(-1.5,0.5);
         rotatingPolygon(g2);
+
         g2.setColor(Color.RED);
         g2.rotate(Math.toRadians(-18));
         g2.translate(0.8,0);
-        g2.scale(1.7,0.1);
+        g2.scale(1.8,0.1);
         filledRect(g2);
+
         g2.setColor(Color.BLUE);
         g2.scale(0.55,10);
         g2.rotate(Math.toRadians(18));
@@ -84,11 +88,13 @@ public class SubroutineHierarchy extends JPanel {
         rotatingPolygon(g2);
         g2.translate(-1.5,0.5);
         rotatingPolygon(g2);
+
         g2.setColor(Color.RED);
         g2.rotate(Math.toRadians(-18));
         g2.translate(0.8,0);
-        g2.scale(1.7,0.1);
+        g2.scale(1.8,0.1);
         filledRect(g2);
+
         g2.setColor(Color.GREEN);
         g2.scale(0.55,10);
         g2.rotate(Math.toRadians(18));
@@ -109,11 +115,11 @@ public class SubroutineHierarchy extends JPanel {
     // TODO: Define methods for drawing objects in the scene.
 
     private void rotatingPolygon(Graphics2D g2) {
-        AffineTransform saveTransform = g2.getTransform();  // implementowanie wielokątów
+        AffineTransform saveTransform = g2.getTransform();  //implemenotwanie wielokątów
         Color saveColor = g2.getColor();
-        g2.setColor( Color.gray);//ustawienie koloru
-        g2.rotate( Math.toRadians( frameNumber*0.90 ));//pozycja startowa pochylona
-        g2.scale( 0.006, 0.006);//wielkość
+        g2.setColor( Color.gray);
+        g2.rotate( Math.toRadians( frameNumber*0.90 ));
+        g2.scale( 0.002, 0.002);
         filledPolygon(g2);
         g2.setColor(saveColor);
         g2.setTransform(saveTransform);
@@ -131,7 +137,7 @@ public class SubroutineHierarchy extends JPanel {
     }
 
     private static void filledRect(Graphics2D g2) { // Fills a square, size = 1, center = (0,0)
-        g2.fill(new Rectangle2D.Double(-0.5,-0.5,1,1));
+        g2.fill(new Rectangle2D.Double(-0.5,-0.5,0.95,1));
     }
 
     private static void circle(Graphics2D g2) { // Strokes a circle, diameter = 1, center = (0,0)
@@ -152,9 +158,10 @@ public class SubroutineHierarchy extends JPanel {
         g2.setStroke(new BasicStroke((float) 1.5));
     }
 
-    private static void filledPolygon(Graphics2D g2) { //utworzenie wielokątów
+    //implementowanie wielokątów
+    private static void filledPolygon(Graphics2D g2) {
         int N=8;
-        int R=50;
+        int R=150;
         int[] xPoints = new int[N];
         int[] yPoints = new int[N];
         for(int i=0;i<N;i++)
@@ -164,7 +171,6 @@ public class SubroutineHierarchy extends JPanel {
         }
         g2.fillPolygon(xPoints, yPoints, N);
     }
-
 
     //--------------------------------- Implementation ------------------------------------
 
